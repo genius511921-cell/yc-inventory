@@ -21,20 +21,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Microsoft JhengHei","Noto San
 .card{background:#fff;border-radius:14px;padding:16px 18px;margin-bottom:14px;box-shadow:0 1px 4px rgba(0,0,0,0.08);}
 .card-title{font-size:11px;font-weight:700;color:#888;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:12px;}
 
-.scanner-wrap{position:relative;width:100%;background:#000;border-radius:12px;overflow:hidden;margin-bottom:12px;display:none;}
-#preview{width:100%;height:260px;object-fit:cover;display:block;}
-.scanner-overlay{position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;pointer-events:none;}
-.scanner-frame{width:200px;height:200px;border:2px solid #1D9E75;border-radius:12px;box-shadow:0 0 0 9999px rgba(0,0,0,0.45);}
-.scanner-line{position:absolute;width:180px;height:2px;background:linear-gradient(90deg,transparent,#1D9E75,transparent);animation:scan 2s linear infinite;}
-@keyframes scan{0%{top:calc(50% - 90px)}100%{top:calc(50% + 90px)}}
-.scanner-status{position:absolute;bottom:12px;left:0;right:0;text-align:center;color:#fff;font-size:13px;background:rgba(0,0,0,0.5);padding:6px;}
-.btn-scan{width:100%;height:50px;font-size:16px;font-weight:700;border:none;border-radius:10px;cursor:pointer;transition:all 0.15s;margin-bottom:10px;}
-.btn-scan.start{background:#1D9E75;color:#fff;}
-.btn-scan.stop{background:#dc2626;color:#fff;}
-.divider{display:flex;align-items:center;gap:10px;margin:10px 0;color:#aaa;font-size:13px;}
-.divider::before,.divider::after{content:'';flex:1;height:1px;background:#e5e7eb;}
-#manualInput{width:100%;height:52px;font-size:20px;font-family:"Courier New",monospace;border:2px solid #d1d5db;border-radius:10px;padding:0 14px;color:#1a1a1a;background:#fff;letter-spacing:0.04em;transition:border-color 0.15s;}
-#manualInput:focus{outline:none;border-color:#1D9E75;box-shadow:0 0 0 3px rgba(29,158,117,0.15);}
+.scan-hint{background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:10px 14px;margin-bottom:10px;font-size:13px;color:#1e40af;display:flex;align-items:center;gap:8px;}
+.scan-hint-icon{font-size:18px;}
+
+#manualInput{width:100%;height:56px;font-size:20px;font-family:"Courier New",monospace;border:2px solid #1D9E75;border-radius:10px;padding:0 14px;color:#1a1a1a;background:#fff;letter-spacing:0.04em;transition:all 0.15s;box-shadow:0 0 0 3px rgba(29,158,117,0.1);}
+#manualInput:focus{outline:none;border-color:#1D9E75;box-shadow:0 0 0 4px rgba(29,158,117,0.25);}
 #manualInput::placeholder{font-size:15px;letter-spacing:0;color:#aaa;font-family:inherit;}
 
 .product-found{background:#f0fdf8;border:1.5px solid #6ee7b7;border-radius:10px;padding:14px;margin-bottom:12px;display:none;}
@@ -44,10 +35,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Microsoft JhengHei","Noto San
 
 .count-wrap{display:none;margin-bottom:12px;}
 .count-label{font-size:14px;font-weight:600;color:#374151;margin-bottom:8px;}
-#countInput{width:100%;height:64px;font-size:32px;font-weight:700;font-family:"Courier New",monospace;border:2px solid #d1d5db;border-radius:10px;padding:0 14px;color:#1a1a1a;background:#fff;text-align:center;transition:border-color 0.15s;}
-#countInput:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,0.15);}
+/* type=tel + inputmode=numeric 會彈出純數字鍵盤 */
+#countInput{width:100%;height:68px;font-size:36px;font-weight:700;font-family:"Courier New",monospace;border:2px solid #2563eb;border-radius:10px;padding:0 14px;color:#1a1a1a;background:#fff;text-align:center;transition:all 0.15s;box-shadow:0 0 0 3px rgba(37,99,235,0.15);}
+#countInput:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 4px rgba(37,99,235,0.3);}
 #countInput::placeholder{font-size:18px;font-weight:400;color:#bbb;}
-#confirmBtn{width:100%;height:54px;margin-top:10px;font-size:19px;font-weight:700;color:#fff;background:#2563eb;border:none;border-radius:10px;cursor:pointer;transition:all 0.15s;}
+#confirmBtn{width:100%;height:56px;margin-top:10px;font-size:19px;font-weight:700;color:#fff;background:#2563eb;border:none;border-radius:10px;cursor:pointer;transition:all 0.15s;}
 #confirmBtn:hover{background:#1d4ed8;}
 #confirmBtn:active{transform:scale(0.98);}
 
@@ -79,13 +71,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Microsoft JhengHei","Noto San
 .cr-val.diff{color:#dc2626;}
 .cr-val.warn{color:#d97706;}
 .cr-val.normal{color:#1a1a1a;}
+.cr-val.negative{color:#7f1d1d;}
 .unit{font-size:16px;font-weight:400;color:#888;margin-left:4px;}
 
 .safe-alert{background:#7f1d1d;border-radius:8px;padding:10px 14px;margin:10px 16px;display:flex;align-items:center;gap:10px;}
+.safe-alert.negative{background:#450a0a;border:2px solid #fca5a5;}
 .safe-alert-text{font-size:13px;color:#fca5a5;font-weight:600;}
 
 .btn-row{display:flex;gap:10px;margin-top:12px;}
-.btn-next{flex:1;height:46px;font-size:15px;font-weight:700;color:#fff;background:#1D9E75;border:none;border-radius:10px;cursor:pointer;}
+.btn-next{flex:1;height:48px;font-size:15px;font-weight:700;color:#fff;background:#1D9E75;border:none;border-radius:10px;cursor:pointer;}
 .btn-next:hover{background:#17876a;}
 
 .summary{display:none;background:#1a1a2e;border-radius:12px;padding:14px 16px;margin-bottom:14px;}
@@ -130,9 +124,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Microsoft JhengHei","Noto San
 .btn-export:hover{background:#f0fdf8;}
 
 @media(max-width:400px){
-  #preview{height:220px;}
-  .scanner-frame{width:170px;height:170px;}
-  #countInput{height:58px;font-size:28px;}
+  #countInput{height:60px;font-size:30px;}
 }
 </style>
 </head>
@@ -157,15 +149,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Microsoft JhengHei","Noto San
 
   <div class="card">
     <div class="card-title">掃描條碼</div>
-    <div class="scanner-wrap" id="scannerWrap">
-      <video id="preview" playsinline autoplay muted></video>
-      <div class="scanner-overlay"><div class="scanner-frame"></div><div class="scanner-line"></div></div>
-      <div class="scanner-status" id="scannerStatus">對準條碼掃描...</div>
+    <div class="scan-hint">
+      <span class="scan-hint-icon">📡</span>
+      <span>請使用藍牙掃描器掃描條碼，或手動輸入編號</span>
     </div>
-    <button class="btn-scan start" id="btnStartScan" onclick="startScan()">📷 開啟鏡頭掃描</button>
-    <button class="btn-scan stop" id="btnStopScan" onclick="stopScan()" style="display:none">✕ 關閉鏡頭</button>
-    <div class="divider">或手動輸入</div>
-    <input type="text" id="manualInput" placeholder="輸入產品編號..." autocomplete="off">
+    <input type="text" id="manualInput" placeholder="等待掃描或輸入..." autocomplete="off" inputmode="text">
   </div>
 
   <div class="card" id="productCard" style="display:none">
@@ -177,7 +165,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Microsoft JhengHei","Noto San
     </div>
     <div class="count-wrap" id="countWrap" style="display:block">
       <div class="count-label">請輸入實際盤點數量：</div>
-      <input type="number" id="countInput" placeholder="輸入數量..." min="0" autocomplete="off">
+      <input type="tel" id="countInput" placeholder="輸入數量..." inputmode="numeric" pattern="[0-9]*" autocomplete="off">
       <button id="confirmBtn" onclick="confirmCount()">✔ 確認送出</button>
     </div>
   </div>
@@ -186,7 +174,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Microsoft JhengHei","Noto San
     <div class="card-title">比對結果</div>
     <div id="resultArea"><div class="result-empty">等待掃描...</div></div>
     <div class="btn-row" id="btnRow" style="display:none">
-      <button class="btn-next" onclick="nextItem()">➡ 下一筆</button>
+      <button class="btn-next" onclick="nextItem()">➡ 下一筆（游標回掃描區）</button>
     </div>
   </div>
 
@@ -200,7 +188,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Microsoft JhengHei","Noto San
   <div class="info-box">
     📋 上傳最新庫存 Excel，員工端立即同步。<br>
     支援欄位：<b>產品編號、品名規格、現有數量、安全存量</b><br>
-    ⚠️ 現有數量低於安全存量時會顯示<b style="color:#b91c1c">紅色警示</b>
+    ⚠️ 負數庫存或低於安全存量會顯示<b style="color:#b91c1c">紅色警示</b>
   </div>
 
   <div class="card">
@@ -223,7 +211,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Microsoft JhengHei","Noto San
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-<script src="https://unpkg.com/@zxing/library@0.19.1/umd/index.min.js"></script>
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getFirestore, collection, getDocs, setDoc, doc, onSnapshot, writeBatch } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
@@ -323,50 +310,80 @@ window._uploadToFirebase = async function(inv) {
 </script>
 
 <script>
+// ========= 音效 =========
+let audioCtx = null;
+function initAudio() {
+  if (!audioCtx) {
+    try { audioCtx = new (window.AudioContext || window.webkitAudioContext)(); } catch(e) {}
+  }
+}
+function beep(type) {
+  initAudio();
+  if (!audioCtx) return;
+  try {
+    const o = audioCtx.createOscillator();
+    const g = audioCtx.createGain();
+    o.connect(g); g.connect(audioCtx.destination);
+    if (type === 'ok') {
+      o.frequency.value = 1000; o.type = 'sine';
+      g.gain.setValueAtTime(0.2, audioCtx.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.15);
+      o.start(); o.stop(audioCtx.currentTime + 0.15);
+    } else {
+      o.frequency.value = 300; o.type = 'square';
+      g.gain.setValueAtTime(0.25, audioCtx.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.4);
+      o.start(); o.stop(audioCtx.currentTime + 0.4);
+    }
+  } catch(e) {}
+}
+
+// ========= 頁面切換 =========
 function showPage(p, el) {
   document.querySelectorAll('.page').forEach(x => x.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
   document.getElementById('page-' + p).classList.add('active');
   el.classList.add('active');
+  if (p === 'scan') setTimeout(focusScanInput, 100);
 }
 
-let codeReader = null;
-function startScan() {
-  document.getElementById('scannerWrap').style.display = 'block';
-  document.getElementById('btnStartScan').style.display = 'none';
-  document.getElementById('btnStopScan').style.display = 'block';
-  if (typeof ZXing === 'undefined') { setTimeout(startScan, 500); return; }
-  codeReader = new ZXing.BrowserMultiFormatReader();
-  codeReader.decodeFromVideoDevice(null, 'preview', (result) => {
-    if (result) {
-      document.getElementById('scannerStatus').textContent = '✓ ' + result.getText();
-      stopScan();
-      handleCode(result.getText());
-    }
-  });
+// ========= 自動 focus =========
+function focusScanInput() {
+  const inp = document.getElementById('manualInput');
+  if (inp && document.getElementById('page-scan').classList.contains('active')) {
+    inp.focus();
+  }
 }
-function stopScan() {
-  if (codeReader) { codeReader.reset(); codeReader = null; }
-  document.getElementById('scannerWrap').style.display = 'none';
-  document.getElementById('btnStartScan').style.display = 'block';
-  document.getElementById('btnStopScan').style.display = 'none';
+function focusCountInput() {
+  const inp = document.getElementById('countInput');
+  if (inp) inp.focus();
 }
 
+window.addEventListener('load', focusScanInput);
+
+// ========= 掃描輸入 =========
 let manualTimer, currentItem = null;
 document.getElementById('manualInput').addEventListener('input', function() {
   clearTimeout(manualTimer);
   const q = this.value.trim();
-  if (q) manualTimer = setTimeout(() => handleCode(q), 500);
+  if (q) manualTimer = setTimeout(() => handleCode(q), 400);
 });
 document.getElementById('manualInput').addEventListener('keydown', function(e) {
-  if (e.key === 'Enter') { clearTimeout(manualTimer); handleCode(this.value.trim()); }
+  if (e.key === 'Enter') { 
+    clearTimeout(manualTimer); 
+    handleCode(this.value.trim()); 
+  }
 });
 
 function handleCode(code) {
   if (!code) return;
   document.getElementById('manualInput').value = code;
   const inv = window._getInventory ? window._getInventory() : [];
-  if (!inv.length) { document.getElementById('resultArea').innerHTML = '<div class="result-notfound"><div class="notfound-title">請管理員先上傳庫存</div></div>'; return; }
+  if (!inv.length) { 
+    document.getElementById('resultArea').innerHTML = '<div class="result-notfound"><div class="notfound-title">請管理員先上傳庫存</div></div>'; 
+    beep('err');
+    return; 
+  }
   const match = inv.find(r => String(r.pn||'').trim().toLowerCase() === code.toLowerCase());
   if (!match) {
     currentItem = null;
@@ -377,6 +394,12 @@ function handleCode(code) {
       +'<div class="notfound-title">查無此料號</div>'
       +'<div class="notfound-code">'+code+'</div>'
       +'<div class="notfound-sub">請確認條碼是否正確</div></div>';
+    beep('err');
+    // 清空並把游標拉回掃描區準備下一筆
+    setTimeout(() => {
+      document.getElementById('manualInput').value = '';
+      focusScanInput();
+    }, 1500);
     return;
   }
   currentItem = match;
@@ -386,7 +409,9 @@ function handleCode(code) {
   document.getElementById('countInput').value = '';
   document.getElementById('resultArea').innerHTML = '<div class="result-empty">請輸入盤點數量後送出</div>';
   document.getElementById('btnRow').style.display = 'none';
-  document.getElementById('countInput').focus();
+  beep('ok');
+  // 掃到後把游標移到數量輸入框，手機會跳出數字鍵盤
+  setTimeout(focusCountInput, 200);
 }
 
 document.getElementById('countInput').addEventListener('keydown', function(e) {
@@ -397,15 +422,20 @@ async function confirmCount() {
   const val = document.getElementById('countInput').value.trim();
   if (val === '' || isNaN(val)) {
     document.getElementById('countInput').style.borderColor = '#ef4444';
-    setTimeout(() => { document.getElementById('countInput').style.borderColor = '#d1d5db'; }, 1000);
+    beep('err');
+    setTimeout(() => { document.getElementById('countInput').style.borderColor = '#2563eb'; }, 1000);
     return;
   }
   const counted  = Math.round(parseFloat(val));
-  const sysQty   = currentItem.qty !== null ? Math.round(parseFloat(currentItem.qty)||0) : null;
+  const sysQty   = currentItem.qty !== null && currentItem.qty !== undefined ? Math.round(parseFloat(currentItem.qty)||0) : null;
   const safeQty  = currentItem.safeQty !== null && currentItem.safeQty !== undefined ? Math.round(parseFloat(currentItem.safeQty)||0) : null;
   const isOk     = sysQty !== null && counted === sysQty;
   const diff     = sysQty !== null ? counted - sysQty : null;
-  const isSafeDanger = safeQty !== null && counted < safeQty;
+  
+  // 新的異常判斷：負數、零、低於安全存量都算異常
+  const isNegative   = counted < 0;
+  const isZeroCount  = counted === 0;
+  const isSafeDanger = safeQty !== null && counted >= 0 && counted < safeQty;
 
   const rec = { pn: currentItem.pn, name: currentItem.name||'', sysQty, counted, diff, isOk };
 
@@ -417,6 +447,8 @@ async function confirmCount() {
   const cls  = diff===null?'normal':diff===0?'ok':diff>0?'diff':'warn';
   const tag  = diff===null?'—':diff===0?'± 0':diff>0?'多 '+diff+' 件':'少 '+Math.abs(diff)+' 件';
 
+  const countedCls = isNegative ? 'negative' : isOk ? 'ok' : 'diff';
+
   document.getElementById('resultArea').innerHTML =
     '<div class="result-compare">'
     +'<div class="compare-header '+(isOk?'ok':'diff')+'">'
@@ -424,11 +456,12 @@ async function confirmCount() {
     +'<div><div class="compare-title">'+(isOk?'數量正確！':'數量有差異！')+'</div>'
     +'<div class="compare-sub">'+(isOk?'系統與盤點一致':'請確認是否有誤計')+'</div></div>'
     +'</div>'
-    +(isSafeDanger ? '<div class="safe-alert"><div style="font-size:20px">🚨</div><div class="safe-alert-text">盤點數量低於安全存量（'+safeQty+'件），請補貨！</div></div>' : '')
+    +(isNegative   ? '<div class="safe-alert negative"><div style="font-size:20px">⛔</div><div class="safe-alert-text">盤點數量為負數（'+counted+'），請確認是否輸入錯誤！</div></div>' : '')
+    +(isSafeDanger && !isNegative ? '<div class="safe-alert"><div style="font-size:20px">🚨</div><div class="safe-alert-text">盤點數量低於安全存量（'+safeQty+' 件），請補貨！</div></div>' : '')
     +'<div class="compare-body">'
     +'<div class="cr"><span class="cr-key">品名規格</span><span class="cr-val normal">'+(currentItem.name||'—')+'</span></div>'
     +'<div class="cr"><span class="cr-key">系統庫存</span><span class="cr-val big normal">'+(sysQty!==null?sysQty:'—')+'<span class="unit">件</span></span></div>'
-    +'<div class="cr"><span class="cr-key">盤點數量</span><span class="cr-val big '+(isOk?'ok':'diff')+'">'+counted+'<span class="unit">件</span></span></div>'
+    +'<div class="cr"><span class="cr-key">盤點數量</span><span class="cr-val big '+countedCls+'">'+counted+'<span class="unit">件</span></span></div>'
     +'<div class="cr"><span class="cr-key">差異</span><span class="cr-val big '+cls+'">'+tag+'</span></div>'
     +(safeQty!==null?'<div class="cr"><span class="cr-key">安全存量</span><span class="cr-val normal">'+safeQty+' 件</span></div>':'')
     +'</div></div>';
@@ -436,6 +469,14 @@ async function confirmCount() {
   document.getElementById('productCard').style.display = 'none';
   document.getElementById('btnRow').style.display = 'flex';
   addLocalHist(rec);
+  
+  // 音效：數量正確且未觸發任何警示 → 成功；否則 → 異常
+  if (isOk && !isNegative && !isSafeDanger) beep('ok'); else beep('err');
+
+  // 自動準備下一筆（清空掃描區並把游標拉回）
+  setTimeout(() => {
+    nextItem();
+  }, 2500);
 }
 
 function nextItem() {
@@ -444,7 +485,7 @@ function nextItem() {
   document.getElementById('btnRow').style.display = 'none';
   document.getElementById('resultArea').innerHTML = '<div class="result-empty">等待掃描...</div>';
   currentItem = null;
-  document.getElementById('manualInput').focus();
+  focusScanInput();
 }
 
 let localHist = [];
@@ -459,6 +500,7 @@ function addLocalHist(rec) {
   ).join('');
 }
 
+// ========= 上傳 Excel =========
 document.getElementById('fileInput').addEventListener('change', function(e) {
   const file = e.target.files[0];
   if (!file) return;
@@ -476,12 +518,18 @@ document.getElementById('fileInput').addEventListener('change', function(e) {
       const colQty  = findCol(headers, ['現有數量','庫存數量','現有','庫存','數量','qty','quantity','stock']);
       const colSafe = findCol(headers, ['安全存量','安全庫存','最低庫存','最低存量','safestock','minstock','safety']);
       if (colPN < 0) { setBadge('找不到產品編號欄位', false); return; }
-      window._pendingInventory = data.map(row => ({
-        pn:      String(row[colPN]  || '').trim(),
-        name:    colName >= 0 ? String(row[colName] || '').trim() : '',
-        qty:     colQty  >= 0 ? (parseFloat(String(row[colQty] ||'').replace(/,/g,''))||0) : null,
-        safeQty: colSafe >= 0 ? (parseFloat(String(row[colSafe]||'').replace(/,/g,''))||null) : null
-      })).filter(r => r.pn);
+      window._pendingInventory = data.map(row => {
+        const qtyRaw = colQty >= 0 ? String(row[colQty] ||'').replace(/,/g,'') : '';
+        const safeRaw = colSafe >= 0 ? String(row[colSafe]||'').replace(/,/g,'') : '';
+        const qtyNum = qtyRaw === '' ? null : parseFloat(qtyRaw);
+        const safeNum = safeRaw === '' ? null : parseFloat(safeRaw);
+        return {
+          pn:      String(row[colPN]  || '').trim(),
+          name:    colName >= 0 ? String(row[colName] || '').trim() : '',
+          qty:     isNaN(qtyNum) ? null : qtyNum,
+          safeQty: isNaN(safeNum) ? null : safeNum
+        };
+      }).filter(r => r.pn);
       const hasSafe = colSafe >= 0;
       document.getElementById('uploadBox').classList.add('loaded');
       document.getElementById('uploadMain').textContent = file.name;
