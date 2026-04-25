@@ -21,11 +21,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Microsoft JhengHei","Noto San
 .card{background:#fff;border-radius:14px;padding:16px 18px;margin-bottom:14px;box-shadow:0 1px 4px rgba(0,0,0,0.08);}
 .card-title{font-size:11px;font-weight:700;color:#888;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:12px;}
 
-.scan-hint{background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:10px 14px;margin-bottom:10px;font-size:13px;color:#1e40af;display:flex;align-items:center;gap:8px;}
-.scan-hint-icon{font-size:18px;}
-
-#manualInput{width:100%;height:56px;font-size:20px;font-family:"Courier New",monospace;border:2px solid #1D9E75;border-radius:10px;padding:0 14px;color:#1a1a1a;background:#fff;letter-spacing:0.04em;transition:all 0.15s;box-shadow:0 0 0 3px rgba(29,158,117,0.1);}
-#manualInput:focus{outline:none;border-color:#1D9E75;box-shadow:0 0 0 4px rgba(29,158,117,0.25);}
+#manualInput{width:100%;height:52px;font-size:20px;font-family:"Courier New",monospace;border:2px solid #d1d5db;border-radius:10px;padding:0 14px;color:#1a1a1a;background:#fff;letter-spacing:0.04em;transition:border-color 0.15s;}
+#manualInput:focus{outline:none;border-color:#1D9E75;box-shadow:0 0 0 3px rgba(29,158,117,0.15);}
 #manualInput::placeholder{font-size:15px;letter-spacing:0;color:#aaa;font-family:inherit;}
 
 .product-found{background:#f0fdf8;border:1.5px solid #6ee7b7;border-radius:10px;padding:14px;margin-bottom:12px;display:none;}
@@ -35,11 +32,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Microsoft JhengHei","Noto San
 
 .count-wrap{display:none;margin-bottom:12px;}
 .count-label{font-size:14px;font-weight:600;color:#374151;margin-bottom:8px;}
-/* type=tel + inputmode=numeric 會彈出純數字鍵盤 */
-#countInput{width:100%;height:68px;font-size:36px;font-weight:700;font-family:"Courier New",monospace;border:2px solid #2563eb;border-radius:10px;padding:0 14px;color:#1a1a1a;background:#fff;text-align:center;transition:all 0.15s;box-shadow:0 0 0 3px rgba(37,99,235,0.15);}
-#countInput:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 4px rgba(37,99,235,0.3);}
+#countInput{width:100%;height:64px;font-size:32px;font-weight:700;font-family:"Courier New",monospace;border:2px solid #d1d5db;border-radius:10px;padding:0 14px;color:#1a1a1a;background:#fff;text-align:center;transition:border-color 0.15s;}
+#countInput:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,0.15);}
 #countInput::placeholder{font-size:18px;font-weight:400;color:#bbb;}
-#confirmBtn{width:100%;height:56px;margin-top:10px;font-size:19px;font-weight:700;color:#fff;background:#2563eb;border:none;border-radius:10px;cursor:pointer;transition:all 0.15s;}
+#confirmBtn{width:100%;height:54px;margin-top:10px;font-size:19px;font-weight:700;color:#fff;background:#2563eb;border:none;border-radius:10px;cursor:pointer;transition:all 0.15s;}
 #confirmBtn:hover{background:#1d4ed8;}
 #confirmBtn:active{transform:scale(0.98);}
 
@@ -71,15 +67,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Microsoft JhengHei","Noto San
 .cr-val.diff{color:#dc2626;}
 .cr-val.warn{color:#d97706;}
 .cr-val.normal{color:#1a1a1a;}
-.cr-val.negative{color:#7f1d1d;}
 .unit{font-size:16px;font-weight:400;color:#888;margin-left:4px;}
 
+/* 安全存量警示 */
 .safe-alert{background:#7f1d1d;border-radius:8px;padding:10px 14px;margin:10px 16px;display:flex;align-items:center;gap:10px;}
-.safe-alert.negative{background:#450a0a;border:2px solid #fca5a5;}
 .safe-alert-text{font-size:13px;color:#fca5a5;font-weight:600;}
 
 .btn-row{display:flex;gap:10px;margin-top:12px;}
-.btn-next{flex:1;height:48px;font-size:15px;font-weight:700;color:#fff;background:#1D9E75;border:none;border-radius:10px;cursor:pointer;}
+.btn-next{flex:1;height:46px;font-size:15px;font-weight:700;color:#fff;background:#1D9E75;border:none;border-radius:10px;cursor:pointer;}
 .btn-next:hover{background:#17876a;}
 
 .summary{display:none;background:#1a1a2e;border-radius:12px;padding:14px 16px;margin-bottom:14px;}
@@ -123,23 +118,73 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Microsoft JhengHei","Noto San
 .btn-export{width:100%;height:44px;font-size:14px;font-weight:700;color:#1D9E75;background:#fff;border:2px solid #1D9E75;border-radius:10px;cursor:pointer;margin-top:12px;}
 .btn-export:hover{background:#f0fdf8;}
 
+/* 刪除功能 */
+.records-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;gap:8px;}
+.records-header .card-title{margin-bottom:0;}
+.btn-clear-all{padding:6px 12px;font-size:12px;font-weight:700;color:#dc2626;background:#fff;border:1.5px solid #dc2626;border-radius:8px;cursor:pointer;text-transform:none;letter-spacing:0;flex-shrink:0;transition:all 0.15s;}
+.btn-clear-all:hover{background:#dc2626;color:#fff;}
+.btn-del-row{padding:4px 10px;font-size:14px;border:1px solid #fca5a5;background:#fff;color:#dc2626;border-radius:6px;cursor:pointer;transition:all 0.15s;}
+.btn-del-row:hover{background:#dc2626;color:#fff;border-color:#dc2626;}
+
 @media(max-width:400px){
-  #countInput{height:60px;font-size:30px;}
+  #countInput{height:58px;font-size:28px;}
 }
+
+/* ===== 登入畫面 ===== */
+.login-overlay{position:fixed;inset:0;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;}
+.login-overlay.hidden{display:none;}
+.login-card{background:#fff;border-radius:18px;padding:36px 28px 28px;width:100%;max-width:360px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.4);}
+.login-logo{font-size:56px;margin-bottom:6px;}
+.login-title{font-size:22px;font-weight:800;color:#1a1a2e;margin-bottom:4px;}
+.login-sub{font-size:14px;color:#888;margin-bottom:26px;}
+#pwdInput{width:100%;height:54px;font-size:18px;border:2px solid #d1d5db;border-radius:10px;padding:0 16px;text-align:center;letter-spacing:0.25em;font-family:"Courier New",monospace;background:#f9fafb;}
+#pwdInput:focus{outline:none;border-color:#1D9E75;background:#fff;box-shadow:0 0 0 3px rgba(29,158,117,0.15);}
+#pwdInput::placeholder{letter-spacing:0;font-family:inherit;color:#bbb;}
+.login-btn{width:100%;height:52px;margin-top:12px;font-size:17px;font-weight:700;color:#fff;background:#1D9E75;border:none;border-radius:10px;cursor:pointer;transition:all 0.15s;letter-spacing:0.15em;}
+.login-btn:hover{background:#17876a;}
+.login-btn:active{transform:scale(0.98);}
+.login-err{font-size:13px;color:#dc2626;margin-top:14px;min-height:18px;font-weight:600;}
+.login-hint{font-size:12px;color:#aaa;margin-top:18px;line-height:1.6;}
+
+/* ===== Nav 右側 ===== */
+.nav-right{display:flex;align-items:center;gap:8px;}
+.role-badge{font-size:11px;padding:3px 10px;border-radius:99px;font-weight:700;}
+.role-badge.admin{background:#fbbf24;color:#78350f;}
+.role-badge.staff{background:#60a5fa;color:#1e3a8a;}
+.btn-logout{width:32px;height:32px;border:none;border-radius:50%;background:rgba(255,255,255,0.1);color:#fff;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.15s;}
+.btn-logout:hover{background:rgba(239,68,68,0.6);}
 </style>
 </head>
 <body>
 
+<!-- 登入畫面 -->
+<div class="login-overlay" id="loginOverlay">
+  <div class="login-card">
+    <div class="login-logo">🔐</div>
+    <div class="login-title">YC 庫存盤點系統</div>
+    <div class="login-sub">請輸入登入密碼</div>
+    <input type="password" id="pwdInput" placeholder="輸入密碼" autocomplete="current-password">
+    <button class="login-btn" onclick="doLogin()">登　入</button>
+    <div class="login-err" id="loginErr"></div>
+    <div class="login-hint">員工請使用員工密碼<br>主管擁有完整管理權限</div>
+  </div>
+</div>
+
 <div class="nav">
   <div class="nav-title">📦 YC 庫存盤點</div>
-  <div class="nav-badge loading" id="connBadge">連線中...</div>
+  <div class="nav-right">
+    <span class="role-badge" id="roleBadge"></span>
+    <span class="nav-badge loading" id="connBadge">連線中...</span>
+    <button class="btn-logout" onclick="logout()" title="登出">⏻</button>
+  </div>
 </div>
 
 <div class="tabs">
   <div class="tab active" onclick="showPage('scan',this)">📱 盤點</div>
-  <div class="tab" onclick="showPage('admin',this)">⚙️ 管理</div>
+  <div class="tab" data-role="admin" onclick="showPage('admin',this)">⚙️ 管理</div>
 </div>
 
+<!-- 盤點頁面 -->
 <div class="page active" id="page-scan">
   <div class="summary" id="summaryBar">
     <div class="sum-item"><div class="sum-num" id="sumTotal">0</div><div class="sum-label">已盤件數</div></div>
@@ -148,12 +193,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Microsoft JhengHei","Noto San
   </div>
 
   <div class="card">
-    <div class="card-title">掃描條碼</div>
-    <div class="scan-hint">
-      <span class="scan-hint-icon">📡</span>
-      <span>請使用藍牙掃描器掃描條碼，或手動輸入編號</span>
-    </div>
-    <input type="text" id="manualInput" placeholder="等待掃描或輸入..." autocomplete="off" inputmode="text">
+    <div class="card-title">輸入產品編號</div>
+    <input type="text" id="manualInput" placeholder="輸入產品編號..." autocomplete="off">
   </div>
 
   <div class="card" id="productCard" style="display:none">
@@ -165,16 +206,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Microsoft JhengHei","Noto San
     </div>
     <div class="count-wrap" id="countWrap" style="display:block">
       <div class="count-label">請輸入實際盤點數量：</div>
-      <input type="tel" id="countInput" placeholder="輸入數量..." inputmode="numeric" pattern="[0-9]*" autocomplete="off">
+      <input type="number" id="countInput" placeholder="輸入數量..." min="0" autocomplete="off">
       <button id="confirmBtn" onclick="confirmCount()">✔ 確認送出</button>
     </div>
   </div>
 
   <div class="card">
     <div class="card-title">比對結果</div>
-    <div id="resultArea"><div class="result-empty">等待掃描...</div></div>
+    <div id="resultArea"><div class="result-empty">等待輸入產品編號...</div></div>
     <div class="btn-row" id="btnRow" style="display:none">
-      <button class="btn-next" onclick="nextItem()">➡ 下一筆（游標回掃描區）</button>
+      <button class="btn-next" onclick="nextItem()">➡ 下一筆</button>
     </div>
   </div>
 
@@ -184,11 +225,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Microsoft JhengHei","Noto San
   </div>
 </div>
 
+<!-- 管理頁面 -->
 <div class="page" id="page-admin">
   <div class="info-box">
     📋 上傳最新庫存 Excel，員工端立即同步。<br>
     支援欄位：<b>產品編號、品名規格、現有數量、安全存量</b><br>
-    ⚠️ 負數庫存或低於安全存量會顯示<b style="color:#b91c1c">紅色警示</b>
+    ⚠️ 現有數量低於安全存量時會顯示<b style="color:#b91c1c">紅色警示</b>
   </div>
 
   <div class="card">
@@ -204,16 +246,80 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Microsoft JhengHei","Noto San
   </div>
 
   <div class="card" id="recordsCard" style="display:none">
-    <div class="card-title">盤點結果 <span id="recordCount" style="font-weight:400;text-transform:none;font-size:12px;color:#888"></span></div>
+    <div class="records-header">
+      <div class="card-title">盤點結果 <span id="recordCount" style="font-weight:400;text-transform:none;font-size:12px;color:#888"></span></div>
+      <button class="btn-clear-all" onclick="confirmClearAll()">🗑 全部清除</button>
+    </div>
     <div id="recordsArea"></div>
     <button class="btn-export" onclick="exportExcel()">⬇ 匯出 Excel</button>
   </div>
 </div>
 
+<script>
+// ===== 登入機制 =====
+const PASSWORDS = {
+  staff: 'pkg2026',     // 員工密碼（可改）
+  admin: 'admin2026'    // 主管密碼（可改）
+};
+
+function checkAuth() {
+  const role = sessionStorage.getItem('yc_role');
+  if (role === 'staff' || role === 'admin') {
+    showApp(role);
+  } else {
+    showLogin();
+  }
+}
+function showLogin() {
+  document.getElementById('loginOverlay').classList.remove('hidden');
+  setTimeout(() => document.getElementById('pwdInput').focus(), 100);
+}
+function showApp(role) {
+  document.getElementById('loginOverlay').classList.add('hidden');
+  applyRole(role);
+}
+function doLogin() {
+  const pwd = document.getElementById('pwdInput').value;
+  const errEl = document.getElementById('loginErr');
+  if (pwd === PASSWORDS.admin) {
+    sessionStorage.setItem('yc_role', 'admin');
+    document.getElementById('pwdInput').value = '';
+    errEl.textContent = '';
+    showApp('admin');
+  } else if (pwd === PASSWORDS.staff) {
+    sessionStorage.setItem('yc_role', 'staff');
+    document.getElementById('pwdInput').value = '';
+    errEl.textContent = '';
+    showApp('staff');
+  } else {
+    errEl.textContent = '✗ 密碼錯誤，請重新輸入';
+    document.getElementById('pwdInput').value = '';
+    document.getElementById('pwdInput').focus();
+  }
+}
+function logout() {
+  if (!confirm('確定要登出嗎？')) return;
+  sessionStorage.removeItem('yc_role');
+  location.reload();
+}
+function applyRole(role) {
+  document.querySelectorAll('[data-role="admin"]').forEach(el => {
+    el.style.display = role === 'admin' ? '' : 'none';
+  });
+  const rb = document.getElementById('roleBadge');
+  if (role === 'admin') { rb.textContent = '👑 主管'; rb.className = 'role-badge admin'; }
+  else { rb.textContent = '👷 員工'; rb.className = 'role-badge staff'; }
+}
+document.getElementById('pwdInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') doLogin();
+});
+checkAuth();
+</script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getFirestore, collection, getDocs, setDoc, doc, onSnapshot, writeBatch } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { getFirestore, collection, getDocs, setDoc, doc, onSnapshot, writeBatch, deleteDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyB7yTHdpvxUf1AXZ3N24sZzKx__ipEQGD4",
@@ -261,7 +367,7 @@ function renderAdminRecords(records) {
   card.style.display = 'block';
   count.textContent = '共 ' + records.length + ' 筆';
   const sorted = [...records].sort((a,b) => (b.time||0)-(a.time||0));
-  area.innerHTML = '<div style="overflow-x:auto"><table class="records-table"><thead><tr><th>產品編號</th><th>品名</th><th>系統</th><th>盤點</th><th>差異</th><th>結果</th></tr></thead><tbody>'
+  area.innerHTML = '<div style="overflow-x:auto"><table class="records-table"><thead><tr><th>產品編號</th><th>品名</th><th>系統</th><th>盤點</th><th>差異</th><th>結果</th><th>操作</th></tr></thead><tbody>'
     + sorted.map(r => '<tr>'
       +'<td style="font-family:monospace">'+r.pn+'</td>'
       +'<td>'+r.name+'</td>'
@@ -269,6 +375,7 @@ function renderAdminRecords(records) {
       +'<td>'+r.counted+'</td>'
       +'<td>'+(r.diff!==null?(r.diff>0?'+'+r.diff:r.diff):'—')+'</td>'
       +'<td><span class="tag '+(r.isOk?'ok':'diff')+'">'+(r.isOk?'正確':'差異')+'</span></td>'
+      +'<td><button class="btn-del-row" onclick="confirmDelete(\''+r.pn.replace(/'/g,"\\'")+'\')" title="刪除這筆">🗑</button></td>'
       +'</tr>'
     ).join('')+'</tbody></table></div>';
 }
@@ -283,6 +390,42 @@ function updateSummary(records) {
 
 window._saveRecord = async function(rec) {
   await setDoc(doc(collection(db, 'records'), rec.pn), rec);
+};
+
+// 刪除單筆盤點記錄
+window._deleteRecord = async function(pn) {
+  await deleteDoc(doc(collection(db, 'records'), pn));
+};
+
+// 清除全部盤點記錄
+window._clearAllRecords = async function() {
+  const snap = await getDocs(collection(db, 'records'));
+  const batch = writeBatch(db);
+  snap.forEach(d => batch.delete(d.ref));
+  await batch.commit();
+};
+
+// 確認刪除單筆（給按鈕呼叫）
+window.confirmDelete = async function(pn) {
+  if (!confirm('確定要刪除這筆盤點記錄嗎？\n\n產品編號：' + pn + '\n\n此動作無法還原。')) return;
+  try {
+    await window._deleteRecord(pn);
+  } catch(e) {
+    alert('刪除失敗：' + (e.message || e));
+  }
+};
+
+// 確認清除全部（給按鈕呼叫）
+window.confirmClearAll = async function() {
+  const records = window._records || [];
+  if (!records.length) { alert('沒有任何盤點記錄可清除'); return; }
+  if (!confirm('⚠️ 確定要刪除「全部 ' + records.length + ' 筆」盤點記錄嗎？\n\n此動作無法還原！')) return;
+  if (!confirm('再次確認：真的要全部清除嗎？')) return;
+  try {
+    await window._clearAllRecords();
+  } catch(e) {
+    alert('清除失敗：' + (e.message || e));
+  }
 };
 
 window.exportExcel = function() {
@@ -310,80 +453,30 @@ window._uploadToFirebase = async function(inv) {
 </script>
 
 <script>
-// ========= 音效 =========
-let audioCtx = null;
-function initAudio() {
-  if (!audioCtx) {
-    try { audioCtx = new (window.AudioContext || window.webkitAudioContext)(); } catch(e) {}
-  }
-}
-function beep(type) {
-  initAudio();
-  if (!audioCtx) return;
-  try {
-    const o = audioCtx.createOscillator();
-    const g = audioCtx.createGain();
-    o.connect(g); g.connect(audioCtx.destination);
-    if (type === 'ok') {
-      o.frequency.value = 1000; o.type = 'sine';
-      g.gain.setValueAtTime(0.2, audioCtx.currentTime);
-      g.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.15);
-      o.start(); o.stop(audioCtx.currentTime + 0.15);
-    } else {
-      o.frequency.value = 300; o.type = 'square';
-      g.gain.setValueAtTime(0.25, audioCtx.currentTime);
-      g.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.4);
-      o.start(); o.stop(audioCtx.currentTime + 0.4);
-    }
-  } catch(e) {}
-}
-
-// ========= 頁面切換 =========
 function showPage(p, el) {
   document.querySelectorAll('.page').forEach(x => x.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
   document.getElementById('page-' + p).classList.add('active');
   el.classList.add('active');
-  if (p === 'scan') setTimeout(focusScanInput, 100);
 }
 
-// ========= 自動 focus =========
-function focusScanInput() {
-  const inp = document.getElementById('manualInput');
-  if (inp && document.getElementById('page-scan').classList.contains('active')) {
-    inp.focus();
-  }
-}
-function focusCountInput() {
-  const inp = document.getElementById('countInput');
-  if (inp) inp.focus();
-}
+// Scanner removed
 
-window.addEventListener('load', focusScanInput);
-
-// ========= 掃描輸入 =========
 let manualTimer, currentItem = null;
 document.getElementById('manualInput').addEventListener('input', function() {
   clearTimeout(manualTimer);
   const q = this.value.trim();
-  if (q) manualTimer = setTimeout(() => handleCode(q), 400);
+  if (q) manualTimer = setTimeout(() => handleCode(q), 500);
 });
 document.getElementById('manualInput').addEventListener('keydown', function(e) {
-  if (e.key === 'Enter') { 
-    clearTimeout(manualTimer); 
-    handleCode(this.value.trim()); 
-  }
+  if (e.key === 'Enter') { clearTimeout(manualTimer); handleCode(this.value.trim()); }
 });
 
 function handleCode(code) {
   if (!code) return;
   document.getElementById('manualInput').value = code;
   const inv = window._getInventory ? window._getInventory() : [];
-  if (!inv.length) { 
-    document.getElementById('resultArea').innerHTML = '<div class="result-notfound"><div class="notfound-title">請管理員先上傳庫存</div></div>'; 
-    beep('err');
-    return; 
-  }
+  if (!inv.length) { document.getElementById('resultArea').innerHTML = '<div class="result-notfound"><div class="notfound-title">請管理員先上傳庫存</div></div>'; return; }
   const match = inv.find(r => String(r.pn||'').trim().toLowerCase() === code.toLowerCase());
   if (!match) {
     currentItem = null;
@@ -393,13 +486,7 @@ function handleCode(code) {
       '<div class="result-notfound"><div class="notfound-icon">❌</div>'
       +'<div class="notfound-title">查無此料號</div>'
       +'<div class="notfound-code">'+code+'</div>'
-      +'<div class="notfound-sub">請確認條碼是否正確</div></div>';
-    beep('err');
-    // 清空並把游標拉回掃描區準備下一筆
-    setTimeout(() => {
-      document.getElementById('manualInput').value = '';
-      focusScanInput();
-    }, 1500);
+      +'<div class="notfound-sub">請確認產品編號是否正確</div></div>';
     return;
   }
   currentItem = match;
@@ -409,9 +496,7 @@ function handleCode(code) {
   document.getElementById('countInput').value = '';
   document.getElementById('resultArea').innerHTML = '<div class="result-empty">請輸入盤點數量後送出</div>';
   document.getElementById('btnRow').style.display = 'none';
-  beep('ok');
-  // 掃到後把游標移到數量輸入框，手機會跳出數字鍵盤
-  setTimeout(focusCountInput, 200);
+  document.getElementById('countInput').focus();
 }
 
 document.getElementById('countInput').addEventListener('keydown', function(e) {
@@ -422,20 +507,15 @@ async function confirmCount() {
   const val = document.getElementById('countInput').value.trim();
   if (val === '' || isNaN(val)) {
     document.getElementById('countInput').style.borderColor = '#ef4444';
-    beep('err');
-    setTimeout(() => { document.getElementById('countInput').style.borderColor = '#2563eb'; }, 1000);
+    setTimeout(() => { document.getElementById('countInput').style.borderColor = '#d1d5db'; }, 1000);
     return;
   }
   const counted  = Math.round(parseFloat(val));
-  const sysQty   = currentItem.qty !== null && currentItem.qty !== undefined ? Math.round(parseFloat(currentItem.qty)||0) : null;
+  const sysQty   = currentItem.qty !== null ? Math.round(parseFloat(currentItem.qty)||0) : null;
   const safeQty  = currentItem.safeQty !== null && currentItem.safeQty !== undefined ? Math.round(parseFloat(currentItem.safeQty)||0) : null;
   const isOk     = sysQty !== null && counted === sysQty;
   const diff     = sysQty !== null ? counted - sysQty : null;
-  
-  // 新的異常判斷：負數、零、低於安全存量都算異常
-  const isNegative   = counted < 0;
-  const isZeroCount  = counted === 0;
-  const isSafeDanger = safeQty !== null && counted >= 0 && counted < safeQty;
+  const isSafeDanger = safeQty !== null && counted < safeQty;
 
   const rec = { pn: currentItem.pn, name: currentItem.name||'', sysQty, counted, diff, isOk };
 
@@ -447,8 +527,6 @@ async function confirmCount() {
   const cls  = diff===null?'normal':diff===0?'ok':diff>0?'diff':'warn';
   const tag  = diff===null?'—':diff===0?'± 0':diff>0?'多 '+diff+' 件':'少 '+Math.abs(diff)+' 件';
 
-  const countedCls = isNegative ? 'negative' : isOk ? 'ok' : 'diff';
-
   document.getElementById('resultArea').innerHTML =
     '<div class="result-compare">'
     +'<div class="compare-header '+(isOk?'ok':'diff')+'">'
@@ -456,12 +534,11 @@ async function confirmCount() {
     +'<div><div class="compare-title">'+(isOk?'數量正確！':'數量有差異！')+'</div>'
     +'<div class="compare-sub">'+(isOk?'系統與盤點一致':'請確認是否有誤計')+'</div></div>'
     +'</div>'
-    +(isNegative   ? '<div class="safe-alert negative"><div style="font-size:20px">⛔</div><div class="safe-alert-text">盤點數量為負數（'+counted+'），請確認是否輸入錯誤！</div></div>' : '')
-    +(isSafeDanger && !isNegative ? '<div class="safe-alert"><div style="font-size:20px">🚨</div><div class="safe-alert-text">盤點數量低於安全存量（'+safeQty+' 件），請補貨！</div></div>' : '')
+    +(isSafeDanger ? '<div class="safe-alert"><div style="font-size:20px">🚨</div><div class="safe-alert-text">盤點數量低於安全存量（'+safeQty+'件），請補貨！</div></div>' : '')
     +'<div class="compare-body">'
     +'<div class="cr"><span class="cr-key">品名規格</span><span class="cr-val normal">'+(currentItem.name||'—')+'</span></div>'
     +'<div class="cr"><span class="cr-key">系統庫存</span><span class="cr-val big normal">'+(sysQty!==null?sysQty:'—')+'<span class="unit">件</span></span></div>'
-    +'<div class="cr"><span class="cr-key">盤點數量</span><span class="cr-val big '+countedCls+'">'+counted+'<span class="unit">件</span></span></div>'
+    +'<div class="cr"><span class="cr-key">盤點數量</span><span class="cr-val big '+(isOk?'ok':'diff')+'">'+counted+'<span class="unit">件</span></span></div>'
     +'<div class="cr"><span class="cr-key">差異</span><span class="cr-val big '+cls+'">'+tag+'</span></div>'
     +(safeQty!==null?'<div class="cr"><span class="cr-key">安全存量</span><span class="cr-val normal">'+safeQty+' 件</span></div>':'')
     +'</div></div>';
@@ -469,23 +546,15 @@ async function confirmCount() {
   document.getElementById('productCard').style.display = 'none';
   document.getElementById('btnRow').style.display = 'flex';
   addLocalHist(rec);
-  
-  // 音效：數量正確且未觸發任何警示 → 成功；否則 → 異常
-  if (isOk && !isNegative && !isSafeDanger) beep('ok'); else beep('err');
-
-  // 自動準備下一筆（清空掃描區並把游標拉回）
-  setTimeout(() => {
-    nextItem();
-  }, 2500);
 }
 
 function nextItem() {
   document.getElementById('manualInput').value = '';
   document.getElementById('productCard').style.display = 'none';
   document.getElementById('btnRow').style.display = 'none';
-  document.getElementById('resultArea').innerHTML = '<div class="result-empty">等待掃描...</div>';
+  document.getElementById('resultArea').innerHTML = '<div class="result-empty">等待輸入產品編號...</div>';
   currentItem = null;
-  focusScanInput();
+  document.getElementById('manualInput').focus();
 }
 
 let localHist = [];
@@ -500,7 +569,6 @@ function addLocalHist(rec) {
   ).join('');
 }
 
-// ========= 上傳 Excel =========
 document.getElementById('fileInput').addEventListener('change', function(e) {
   const file = e.target.files[0];
   if (!file) return;
@@ -518,18 +586,12 @@ document.getElementById('fileInput').addEventListener('change', function(e) {
       const colQty  = findCol(headers, ['現有數量','庫存數量','現有','庫存','數量','qty','quantity','stock']);
       const colSafe = findCol(headers, ['安全存量','安全庫存','最低庫存','最低存量','safestock','minstock','safety']);
       if (colPN < 0) { setBadge('找不到產品編號欄位', false); return; }
-      window._pendingInventory = data.map(row => {
-        const qtyRaw = colQty >= 0 ? String(row[colQty] ||'').replace(/,/g,'') : '';
-        const safeRaw = colSafe >= 0 ? String(row[colSafe]||'').replace(/,/g,'') : '';
-        const qtyNum = qtyRaw === '' ? null : parseFloat(qtyRaw);
-        const safeNum = safeRaw === '' ? null : parseFloat(safeRaw);
-        return {
-          pn:      String(row[colPN]  || '').trim(),
-          name:    colName >= 0 ? String(row[colName] || '').trim() : '',
-          qty:     isNaN(qtyNum) ? null : qtyNum,
-          safeQty: isNaN(safeNum) ? null : safeNum
-        };
-      }).filter(r => r.pn);
+      window._pendingInventory = data.map(row => ({
+        pn:      String(row[colPN]  || '').trim(),
+        name:    colName >= 0 ? String(row[colName] || '').trim() : '',
+        qty:     colQty  >= 0 ? (parseFloat(String(row[colQty] ||'').replace(/,/g,''))||0) : null,
+        safeQty: colSafe >= 0 ? (parseFloat(String(row[colSafe]||'').replace(/,/g,''))||null) : null
+      })).filter(r => r.pn);
       const hasSafe = colSafe >= 0;
       document.getElementById('uploadBox').classList.add('loaded');
       document.getElementById('uploadMain').textContent = file.name;
